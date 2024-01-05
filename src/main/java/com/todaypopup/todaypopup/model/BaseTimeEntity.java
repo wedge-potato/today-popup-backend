@@ -11,20 +11,20 @@ import lombok.Getter;
 @MappedSuperclass
 public abstract class BaseTimeEntity {
 
-  @Column(name = "created_date")
-  private LocalDateTime createdDate;   // 생성일시
+  @Column(name = "create_date")
+  private LocalDateTime createDate;
 
-  @Column(name = "modified_date")
-  private LocalDateTime modifiedDate;  // 최종 수정일시
+  @Column(name = "update_date")
+  private LocalDateTime updateDate;
 
   @PrePersist
   public void prePersist() {
-    this.createdDate = LocalDateTime.now();
+    this.createDate = LocalDateTime.now();
   }
 
   @PreUpdate
   public void preUpdate() {
-    this.modifiedDate = LocalDateTime.now();
+    this.updateDate = LocalDateTime.now();
   }
 
 }

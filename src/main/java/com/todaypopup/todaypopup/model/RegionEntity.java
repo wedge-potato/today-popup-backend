@@ -7,19 +7,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-@Entity(name = "district")
-@Table(name = "district")
-public class DistrictEntity extends BaseTimeEntity {
+@EqualsAndHashCode(callSuper = true)
+@Entity(name = "region")
+@Table(name = "region")
+public class RegionEntity extends BaseTimeEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(name = "district", nullable = false)
-  private String districtName;
+  @Column(name = "city", nullable = false)
+  private String city;
 
-  @Column(nullable = false)
-  private Integer cityId;
+  @Column(name = "district", nullable = false)
+  private String district;
 }

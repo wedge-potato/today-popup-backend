@@ -1,10 +1,11 @@
 package com.todaypopup.todaypopup.service;
 
 import com.todaypopup.todaypopup.dto.GetPopupsQueryDto;
-import java.util.List;
+import com.todaypopup.todaypopup.dto.GetPopupsResponseDto;
+import com.todaypopup.todaypopup.dto.PaginationResponseDto;
 
 public interface PopupService {
 
-  List<String> GetPopups(GetPopupsQueryDto params);
+  PaginationResponseDto<GetPopupsResponseDto> GetPopups(GetPopupsQueryDto params) throws Exception;
 
 }
