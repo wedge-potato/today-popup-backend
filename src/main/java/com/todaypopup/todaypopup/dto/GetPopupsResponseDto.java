@@ -10,6 +10,7 @@ public class GetPopupsResponseDto {
 
   private String thumbnail;
   private String title;
-  private String end_date;
+  private String startDate;
+  private String endDate;
   private String location;
 }
