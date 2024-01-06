@@ -22,8 +22,9 @@ public class DateUtil {
       return null;
     }
 
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat kstFormat = new SimpleDateFormat("yyyy-MM-dd");
+    kstFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
 
-    return format.format(date);
+    return kstFormat.format(date);
   }
 }
