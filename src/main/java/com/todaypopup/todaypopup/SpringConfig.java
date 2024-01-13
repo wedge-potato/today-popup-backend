@@ -9,6 +9,6 @@ public class SpringConfig {
 
   @PostConstruct
   void started() {
-    TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+    TimeZone.setDefault(TimeZone.getTimeZone("KST"));
   }
 }

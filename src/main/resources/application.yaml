@@ -9,4 +9,4 @@ spring:
     properties:
       hibernate.format_sql: true
       jdbc:
-        time_zone: UTC
+        time_zone: KST
