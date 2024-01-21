@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 public class GetPopupsRequestDto extends PaginationQueryDto {
 
   private Integer category;
-  private Integer region;
+  private Integer sidoId;
+  private Integer sigunguId;
 
 }

@@ -2,15 +2,16 @@ server:
   port: 8080
 
 spring:
-  profiles:
-    default: local
+  config:
+    activate:
+      on-profile: dev
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db_mysql:3306/today_popup?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=KST
-    username: root
-    password: root
-    
+    url: jdbc:mysql://$${{ secrets.MYSQL_URL_DEV }}:3306/today_popup?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=KST
+    username: ${{ secrets.MYSQL_USERNAME_DEV }}
+    password: ${{ secrets.MYSQL_PASSWORD_DEV }}
+
   jpa:
     open-in-view: true
     show-sql: true

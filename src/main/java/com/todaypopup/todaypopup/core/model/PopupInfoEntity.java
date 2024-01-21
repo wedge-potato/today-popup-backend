@@ -29,6 +29,12 @@ public class PopupInfoEntity extends BaseTimeEntity {
   @Column(name = "address")
   private String address;
 
+  @Column(name = "lat")
+  private String lat;
+
+  @Column(name = "lng")
+  private String lng;
+
   @Column(name = "start_time")
   private Date startTime;
 

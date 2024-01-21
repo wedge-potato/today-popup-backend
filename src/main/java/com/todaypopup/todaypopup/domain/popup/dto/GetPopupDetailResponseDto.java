@@ -17,6 +17,8 @@ public class GetPopupDetailResponseDto {
   private String endTime;
   private String urlLink;
   private String introduction;
-  private String address;
+  private String sido;
+  private String sigungu;
+  private LocationDto location;
 
 }

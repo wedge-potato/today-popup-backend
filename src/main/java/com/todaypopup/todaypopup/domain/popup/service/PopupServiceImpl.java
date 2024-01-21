@@ -9,6 +9,7 @@ import com.todaypopup.todaypopup.core.util.DateUtil;
 import com.todaypopup.todaypopup.domain.popup.dto.GetPopupDetailResponseDto;
 import com.todaypopup.todaypopup.domain.popup.dto.GetPopupsRequestDto;
 import com.todaypopup.todaypopup.domain.popup.dto.GetPopupsResponseDto;
+import com.todaypopup.todaypopup.domain.popup.dto.LocationDto;
 import com.todaypopup.todaypopup.domain.popup.repository.ImageRepository;
 import com.todaypopup.todaypopup.domain.popup.repository.PopupRepository;
 import com.todaypopup.todaypopup.domain.popup.repository.PopupRepositoryCustom;
@@ -65,7 +66,7 @@ public class PopupServiceImpl implements PopupService {
   public GetPopupDetailResponseDto getPopupDetail(Long popupId) throws Exception {
     Optional<PopupEntity> popupOptional = popupRepository.findById(popupId);
 
-    if (!popupOptional.isPresent()) {
+    if (popupOptional.isEmpty()) {
       throw new IllegalArgumentException("Invalid popupId");
     }
 
@@ -74,6 +75,12 @@ public class PopupServiceImpl implements PopupService {
     List<String> imageUrls = popup.getImages().stream()
         .map(ImageEntity::getUrl)
         .collect(Collectors.toList());
+
+    LocationDto location = LocationDto.builder()
+        .address(popup.getPopupInfo().getAddress())
+        .lat(popup.getPopupInfo().getLat())
+        .lng(popup.getPopupInfo().getLng())
+        .build();
 
     return GetPopupDetailResponseDto.builder()
         .images(imageUrls)
@@ -85,7 +92,9 @@ public class PopupServiceImpl implements PopupService {
         .endTime(DateUtil.parseDateToTimeOnly(popup.getPopupInfo().getEndTime()))
         .urlLink(popup.getPopupInfo().getUrlLink())
         .introduction(popup.getPopupInfo().getIntroduction())
-        .address(popup.getPopupInfo().getAddress())
+        .sido(popup.getSido().getName())
+        .sigungu(popup.getSigungu().getName())
+        .location(location)
         .build();
   }
 
@@ -117,12 +126,13 @@ public class PopupServiceImpl implements PopupService {
 
   public List<GetPopupsResponseDto> convertToDtoList(List<PopupEntity> popupEntities) {
     return popupEntities.stream().map(popup -> GetPopupsResponseDto.builder()
+        .id(popup.getId())
         .thumbnail(popup.getThumbnail())
         .title(popup.getTitle())
         .startDate(DateUtil.parseDateToDateOnly(popup.getStartDate()))
         .endDate(DateUtil.parseDateToDateOnly(popup.getEndDate()))
-        .sido(popup.getRegion().getSido())
-        .sigungu(popup.getRegion().getSigungu())
+        .sido(popup.getSido().getName())
+        .sigungu(popup.getSigungu().getName())
         .category(popup.getCategory().getName())
         .build()).collect(Collectors.toList());
   }

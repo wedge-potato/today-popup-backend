@@ -5,23 +5,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Entity(name = "region")
-@Table(name = "region")
-public class RegionEntity extends BaseTimeEntity {
+@Entity(name = "sido")
+@Table(name = "sido")
+public class SidoEntity extends BaseTimeEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Long id;
 
-  @Column(name = "sido", nullable = false)
-  private String sido;
+  @Column(name = "name", nullable = false)
+  private String name;
 
-  @Column(name = "sigungu", nullable = false)
-  private String sigungu;
+  @OneToMany(mappedBy = "sido")
+  private List<SigunguEntity> sigungus;
 }

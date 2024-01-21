@@ -46,8 +46,12 @@ public class PopupEntity extends BaseTimeEntity {
   private CategoryEntity category;
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "region_id", referencedColumnName = "id", insertable = false, updatable = false)
-  private RegionEntity region;
+  @JoinColumn(name = "sido_id", referencedColumnName = "id", insertable = false, updatable = false)
+  private SidoEntity sido;
+
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "sigungu_id", referencedColumnName = "id", insertable = false, updatable = false)
+  private SigunguEntity sigungu;
 
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "info_id", referencedColumnName = "id")

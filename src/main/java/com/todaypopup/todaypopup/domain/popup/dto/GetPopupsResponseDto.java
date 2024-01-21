@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 public class GetPopupsResponseDto {
-
+  private Long id;
   private String thumbnail;
   private String title;
   private String startDate;

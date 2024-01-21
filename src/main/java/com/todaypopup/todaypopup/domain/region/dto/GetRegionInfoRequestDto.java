@@ -9,5 +9,5 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class GetRegionInfoRequestDto {
 
-  private Long regionId;
+  private Long sidoId;
 }

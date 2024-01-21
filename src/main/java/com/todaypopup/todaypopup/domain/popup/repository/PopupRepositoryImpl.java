@@ -33,8 +33,11 @@ public class PopupRepositoryImpl implements PopupRepositoryCustom {
     if (queryDto.getCategory() != null) {
       predicates.add(cb.equal(popup.get("category").get("id"), queryDto.getCategory()));
     }
-    if (queryDto.getRegion() != null) {
-      predicates.add(cb.equal(popup.get("region").get("id"), queryDto.getRegion()));
+    if (queryDto.getSidoId() != null) {
+      predicates.add(cb.equal(popup.get("sido").get("id"), queryDto.getSidoId()));
+    }
+    if (queryDto.getSigunguId() != null) {
+      predicates.add(cb.equal(popup.get("sigungu").get("id"), queryDto.getSigunguId()));
     }
 
     // Cursor
