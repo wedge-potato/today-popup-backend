@@ -8,5 +8,4 @@ public class TodayPopupApplication {
     public static void main(String[] args) {
         SpringApplication.run(TodayPopupApplication.class, args);
     }
-
 }
