@@ -11,7 +11,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      env: dev
+      PROFILE: dev
     depends_on:
       - db_mysql
     networks:
