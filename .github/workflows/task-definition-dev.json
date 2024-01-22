@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:873009830527:task-definition/todaypopup-dev:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:873009830527:task-definition/todaypopup-dev:6",
     "containerDefinitions": [
         {
             "name": "todaypopup-dev",
-            "image": "873009830527.dkr.ecr.ap-northeast-2.amazonaws.com/todaypopup-dev",
+            "image": "873009830527.dkr.ecr.ap-northeast-2.amazonaws.com/todaypopup-dev:lastest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "spring-boot",
+                    "name": "spring",
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp",
@@ -19,7 +19,6 @@
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "readonlyRootFilesystem": false,
             "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
@@ -36,7 +35,7 @@
     "family": "todaypopup-dev",
     "executionRoleArn": "arn:aws:iam::873009830527:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 6,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -79,7 +78,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-01-22T10:16:02.517Z",
+    "registeredAt": "2024-01-22T15:26:50.688Z",
     "registeredBy": "arn:aws:iam::873009830527:root",
     "tags": []
 }
