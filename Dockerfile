@@ -3,6 +3,9 @@
 #######################################
 FROM openjdk:17-alpine AS builder
 
+ARG PROFILE
+ENV	PROFILE = ${PROFILE}
+
 WORKDIR /build
 
 # Gradle Wrapper와 설정 파일 복사
@@ -25,7 +28,8 @@ RUN ./gradlew build -x test --parallel --stacktrace
 #######################################
 FROM openjdk:17-alpine
 
-ENV	PROFILE local
+ARG PROFILE
+ENV	PROFILE = ${PROFILE}
 
 # 빌더 이미지에서 JAR 파일 복사
 COPY --from=builder /build/build/libs/*.jar /app.jar
