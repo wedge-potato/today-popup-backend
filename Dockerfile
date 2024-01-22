@@ -25,6 +25,8 @@ RUN ./gradlew build -x test --parallel --stacktrace
 #######################################
 FROM openjdk:17-alpine
 
+ENV	PROFILE local
+
 # 빌더 이미지에서 JAR 파일 복사
 COPY --from=builder /build/build/libs/*.jar /app.jar
 
@@ -32,4 +34,4 @@ COPY --from=builder /build/build/libs/*.jar /app.jar
 EXPOSE 8080
 
 # 애플리케이션 실행
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILE}", "-jar", "/app.jar"]
