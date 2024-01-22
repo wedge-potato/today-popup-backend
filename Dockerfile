@@ -4,7 +4,7 @@
 FROM openjdk:17-alpine AS builder
 
 ARG PROFILE
-ENV	PROFILE = ${PROFILE}
+ENV PROFILE=${PROFILE}
 
 WORKDIR /build
 
@@ -27,9 +27,6 @@ RUN ./gradlew build -x test --parallel --stacktrace
 ###### Run Spring Application #######
 #######################################
 FROM openjdk:17-alpine
-
-ARG PROFILE
-ENV	PROFILE=${PROFILE}
 
 # 빌더 이미지에서 JAR 파일 복사
 COPY --from=builder /build/build/libs/*.jar /app.jar

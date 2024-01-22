@@ -1,25 +1,21 @@
 version: "3"
 
 services:
-#  spring_app:
-#    platform: linux/amd64
-#    container_name: today_popup
-#    restart: on-failure
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:mysql://db_mysql:3306/today_popup?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=KST
-#      SPRING_DATASOURCE_USERNAME: root
-#      SPRING_DATASOURCE_PASSWORD: root
-#      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-#      TZ: KST
-#    depends_on:
-#      - db_mysql
-#    networks:
-#      - today-popup-network
+  spring_app:
+    platform: linux/amd64
+    container_name: today_popup
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      env: dev
+    depends_on:
+      - db_mysql
+    networks:
+      - today-popup-network
 
   db_mysql:
     platform: linux/amd64
