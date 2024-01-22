@@ -28,6 +28,9 @@ RUN ./gradlew build -x test --parallel --stacktrace
 #######################################
 FROM openjdk:17-alpine
 
+ARG PROFILE=local
+ENV PROFILE=${PROFILE}
+
 # 빌더 이미지에서 JAR 파일 복사
 COPY --from=builder /app/build/libs/*.jar /app.jar
 
