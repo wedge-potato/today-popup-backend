@@ -53,6 +53,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Set Yaml
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: ./src/main/resources/application-dev.yml
+      env:
+        spring.datasource.url: ${{ secrets.MYSQL_URL_DEV }}
+        spring.datasource.username: ${{ secrets.MYSQL_USERNAME_DEV }}
+        spring.datasource.password: ${{ secrets.MYSQL_PASSWORD_DEV }}
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
