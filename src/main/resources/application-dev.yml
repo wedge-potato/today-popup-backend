@@ -5,7 +5,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://$${{ secrets.MYSQL_URL_DEV }}:3306/today_popup?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=KST
+    url: jdbc:mysql://${{ secrets.MYSQL_URL_DEV }}:3306/today_popup?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=KST
     username: ${{ secrets.MYSQL_USERNAME_DEV }}
     password: ${{ secrets.MYSQL_PASSWORD_DEV }}
 
