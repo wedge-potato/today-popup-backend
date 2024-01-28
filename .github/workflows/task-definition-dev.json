@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:873009830527:task-definition/todaypopup-dev:6",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:873009830527:task-definition/todaypopup-dev:26",
     "containerDefinitions": [
         {
             "name": "todaypopup-dev",
@@ -19,12 +19,13 @@
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "readonlyRootFilesystem": true,
             "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/todaypopup-dev",
+                    "awslogs-group": "/ecs/",
                     "awslogs-region": "ap-northeast-2",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -35,7 +36,7 @@
     "family": "todaypopup-dev",
     "executionRoleArn": "arn:aws:iam::873009830527:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 6,
+    "revision": 26,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -50,6 +51,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -78,7 +82,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-01-22T15:26:50.688Z",
+    "registeredAt": "2024-01-28T11:29:29.178Z",
     "registeredBy": "arn:aws:iam::873009830527:root",
     "tags": []
 }
