@@ -19,7 +19,7 @@
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "readonlyRootFilesystem": true,
+            "readonlyRootFilesystem": false,
             "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
