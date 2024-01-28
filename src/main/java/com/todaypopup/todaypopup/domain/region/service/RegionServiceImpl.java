@@ -6,12 +6,15 @@ import com.todaypopup.todaypopup.domain.region.dto.GetRegionInfoResponseDto;
 import com.todaypopup.todaypopup.domain.region.dto.SigunguDto;
 import com.todaypopup.todaypopup.domain.region.repository.SidoRepository;
 import com.todaypopup.todaypopup.domain.region.repository.SigunguRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class RegionServiceImpl implements RegionService {
 
   private final SidoRepository sidoRepository;
