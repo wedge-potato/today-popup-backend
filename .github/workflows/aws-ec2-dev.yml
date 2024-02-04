@@ -1,7 +1,5 @@
 name: CICD
 
-run-name: Running
-
 on:
   push:
     branches: [ "develop" ]
