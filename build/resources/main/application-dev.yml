@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${{ MYSQL_URL_DEV }}
+    username: ${{ MYSQL_USERNAME_DEV }}
+    password: ${{ MYSQL_PASSWORD_DEV }}
+
+  jpa:
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.format_sql: false
+      jdbc:
+        time_zone: KST
