@@ -5,6 +5,8 @@ JAR="$ROOT_PATH/application.jar"
 STOP_LOG="$ROOT_PATH/stop.log"
 SERVICE_PID=$(pgrep -f $JAR) # 실행중인 Spring 서버의 PID
 
+sudo iptables -D PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+
 if [ -z "$SERVICE_PID" ]; then
   echo "서비스 NouFound" >> $STOP_LOG
 else
